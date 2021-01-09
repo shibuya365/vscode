@@ -1,9 +1,8 @@
 package main
 
 import (
-	"routes"
-
 	"github.com/gin-gonic/gin"
+	"github.com/shibuya365/VSCode.git/routes"
 )
 
 func main() {
