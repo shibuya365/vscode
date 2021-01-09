@@ -1,0 +1,252 @@
+[
+  {
+    "title":"範囲選択",
+    "shortcut":"shift + カーソル"
+  },
+  {
+    "title":"端に移動",
+    "shortcut":"Cmd + カーソル"
+  },
+  {
+    "title":"単語移動",
+    "shortcut":"Option + 左右"},
+  {
+    "title":"コピー",
+     "shortcut":"Cmd + C"
+  },
+  {
+    "title":"ペースト",
+    "shortcut":"Cmd + V"
+  },
+  {
+    "title":"カット",
+    "shortcut":"Cmd + C"
+  },
+  {
+    "title":"元に戻す",
+    "shortcut":"Cmd + Z"
+  },
+  {
+    "title":"やり直し",
+    "shortcut":"Cmd + Shift + Z"
+  },
+  {
+    "title":"複数範囲選択",
+    "shortcut":"Cmd + D"
+  },
+  {
+    "title":"検索",
+    "shortcut":"Cmd + F"
+  },
+  {
+    "title":"横断検索",
+    "shortcut":"Cmd + shift + F"
+  },
+  {
+    "title":"定義元を参照",
+    "shortcut":"F12"
+  },
+  {
+    "title":"ピークで定義元を参照",
+    "shortcut":"Option + F12"
+  },
+  {
+    "title":"リファレンスを表示"
+    ,"shortcut":"Shift + F12"
+  },
+  {"title":"クイックフィックス",
+    "shortcut":"Cmd + ."
+  },
+  {
+    "title":"ファイル検索",
+    "shortcut":"Cmd + P"
+  },
+  {
+    "title":"タブを閉じる",
+    "shortcut":"Cmd + W"
+  },
+  {
+    "title":"保存",
+    "shortcut":"Cmd + S"
+  },
+  {
+    "title":"行の入れ替え",
+    "shortcut":"Option + 上下"
+  },
+  {
+    "title":"ファイル移動",
+    "shortcut":"Cmd + 左右"
+  },
+  {
+    "title":"トグルラインコメント",
+    "shortcut":"Cmd + /"
+  },
+  {
+    "title":"コマンドパレット表示",
+    "shortcut":"Cmd + Shift + P / F1"
+  },
+  {
+    "title":"新しいウィンドウ",
+    "shortcut":"Cmd + Shift + N"
+  },
+  {
+    "title":"フォルダを閉じる",
+    "shortcut":"Cmd + K →+ F"
+  },
+  {
+    "title":"新しいタブ",
+    "shortcut":"Cmd + N"
+  },
+  {"title":"別名で保存",
+    "shortcut":"Cmd + Shift + S"
+  },
+  {
+    "title":"直前に閉じたタブを復元",
+    "shortcut":"Cmd + Shift + T"
+  },
+  {
+    "title":"VSCode 設定を開く",
+    "shortcut":"Code + ,"
+  },
+  {
+    "title":"シンボル名を変更",
+    "shortcut":"F2"
+  },
+  {
+    "title":"シンボル名を横断検索",
+    "shortcut":"Cmd + T"
+  },
+  {
+    "title":"ファイル内のシンボルへの移動",
+    "shortcut":"Cmd + Shift + O"
+  },
+  {
+    "title":"問題タブをトグル",
+    "shortcut":"Cmd + Shift + M"
+  },
+  {
+    "title":"カッコの始まり・終わりに移動",
+    "shortcut":"CmdCmd + Shift + \\"
+  },
+  {
+    "title":"すべての検索一致を同時選択",
+    "shortcut":"Cmd + F2"
+  },
+  {
+    "title":"トグルブロックコメント",
+    "shortcut":"Option + Shift + A"
+  },
+  {
+    "title":"ファイル内の文字列置換",
+    "shortcut":"Cmd + Option + F"
+  },
+  {
+    "title":"編集閲覧履歴",
+    "shortcut":"Ctrl + Tab"
+  },
+  {
+    "title":"直前の編集ファイルを開く",
+    "shortcut":"Ctrl + \\_ / Ctrl + -"
+  },
+  {
+    "title":"ファイルを開く",
+    "shortcut":"Cmd + O"
+  },
+  {
+    "title":"ズームイン",
+    "shortcut":"Cmd + Shift + +"
+  },
+  {
+    "title":"ズームアウト",
+    "shortcut":"Cmd + -"
+  },
+  {
+    "title":"コードのフォーマット",
+    "shortcut":"Option + Shift + F"
+  },
+  {
+    "title":"行削除",
+    "shortcut":"Cmd + Shift + K"
+  },
+  {
+    "title":"マルチカーソール",
+    "shortcut":"Cmd + Ctrl + 上下"
+  },
+  {
+    "title":"インデント",
+    "shortcut":"Cmd + ] / Tab"
+  },
+  {
+    "title":"アウトデント",
+    "shortcut":"Cmd + ["
+  },
+  {
+    "title":"下に 1 行インサート",
+    "shortcut":"Cmd + Enter"
+  },
+  {
+    "title":"上に 1 行インサート",
+    "shortcut":"Cmd + Shift + Enter"
+  },
+  {
+    "title":"行を上下にコピー",
+    "shortcut":"Option + Shift + 上下"
+  },
+  {
+    "title":"指定行へ移動",
+    "shortcut":"Ctrl + G"
+  },
+  {
+    "title":"サイドバーのトグル",
+    "shortcut":"Cmd + B"
+  },
+  {
+    "title":"次の問題箇所へ移動",
+    "shortcut":"F8"
+  },
+  {
+    "title":"前の問題箇所へ移動",
+    "shortcut":"Shift + F8"
+  },
+  {
+    "title":"現在の行を選択",
+    "shortcut":"Cmd + L"
+  },
+  {
+    "title":"開いているタブ以外を閉じる",
+    "shortcut":"Cmd + Option + T"
+  },
+  {
+    "title":"カーソル操作を元に戻す",
+    "shortcut":"Cmd + U"
+  },
+  {
+    "title":"すべてのタブを保存",
+    "shortcut":"Cmd + Option + S"
+  },
+  {
+    "title":"(検索)大文字・小文字切り替え",
+    "shortcut":"Cmd + Option + C"
+  },
+  {
+    "title":"(検索)ワード検索",
+    "shortcut":"Cmd + Option + W"
+  },
+  {
+    "title":"(検索)正規表現",
+    "shortcut":"Cmd + Option + R"
+  },
+  {
+    "title":"開いているファイルのパスをコピー",
+    "shortcut":"Cmd + K → P"
+  },
+  {
+    "title":"開いてるファイルを Finder で表示",
+    "shortcut":"Cmd + K → R"
+  },
+  {
+    "title":"開いてるファイルを新しいウィンドウで表示",
+    "shortcut":"Cmd + K → O"
+  }
+  
+]

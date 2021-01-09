@@ -1,11 +1,26 @@
 package main
 
 import (
+	"fmt"
+
+	"github.com/gin-gonic/conf"
 	"github.com/gin-gonic/gin"
 	"github.com/shibuya365/VSCode.git/routes"
 )
 
 func main() {
+	// 設定ファイルを読み込む
+	lines, err := conf.ReadConfDB()
+	// もしファイルがなかったら
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	for _, line := range lines {
+		fmt.Println(line)
+	}
+
+	// ルーター
 	router := gin.Default()
 
 	// 事前にテンプレートをロード 相対パス
