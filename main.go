@@ -1,44 +1,39 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/gin-gonic/conf"
 	"github.com/gin-gonic/gin"
+	"github.com/shibuya365/VSCode.git/dbscs"
 	"github.com/shibuya365/VSCode.git/routes"
 )
 
 func main() {
-	// 設定ファイルを読み込む
-	lines, err := conf.ReadConfDB()
-	// もしファイルがなかったら
-	if err != nil {
-		fmt.Println(err.Error())
-	}
 
-	for _, line := range lines {
-		fmt.Println(line)
-	}
+	// ショートカットのファイルを読み込む
+	scs := dbscs.ReadShortcutsDB()
+
+	// users := make(map[string][]int)
+	// n := []int{1, 2, 3, 4}
+	// users["bvtujotnf4q4d12u9700"] = n
 
 	// ルーター
-	router := gin.Default()
+	r := gin.Default()
 
 	// 事前にテンプレートをロード 相対パス
 	// router.LoadHTMLGlob("templates/*/**") などもいけるらしい
-	router.LoadHTMLGlob("templates/*.html")
+	r.LoadHTMLGlob("templates/*.html")
 
 	// 静的ファイルのパスを指定
-	router.Static("/assets", "./assets")
+	r.Static("/assets", "./assets")
 
 	// ハンドラの指定
-	router.GET("/hello", routes.Hello)
+	r.GET("/", routes.Index(scs))
 
-	// グルーピング
-	user := router.Group("/api")
-	{
-		user.GET("/hello", routes.HelloJson)
-	}
+	r.GET("/delete/:id", routes.Delete(scs))
+	r.GET("/add/:id", routes.Add(scs))
+	r.GET("/showall", routes.ShowAll(scs))
 
-	router.NoRoute(routes.NoRoute) // どのルーティングにも当てはまらなかった場合に処理
-	router.Run(":8080")
+	// どのルーティングにも当てはまらなかった場合に処理
+	// r.NoRoute(routes.NoRoute)
+
+	r.Run(":3000")
 }
