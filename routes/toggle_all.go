@@ -10,13 +10,13 @@ import (
 	"github.com/shibuya365/VSCode.git/dbus"
 )
 
-// 表示させる
-func Add(scs dbscs.Shortcuts) gin.HandlerFunc {
+// Toggle is toggle users flag
+func ToggleAll(scs dbscs.Shortcuts) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		fmt.Println("R Add")
+		fmt.Println("R Delete")
 		// IDを取得
 		id, _ := strconv.Atoi(c.Param("id"))
-		fmt.Println("add id: ", id)
+		fmt.Println("id: ", id)
 
 		// User 読み込み
 		users := dbus.ReadUsersDB()
@@ -39,8 +39,9 @@ func Add(scs dbscs.Shortcuts) gin.HandlerFunc {
 		}
 		// nums := users[cookie]
 		// usersにIDを追加
-		users[cookie] = append(users[cookie], id)
-		fmt.Println("add users: ", users)
+		// users[cookie] = append(users[cookie], id)
+		users[cookie][id] = !users[cookie][id]
+		fmt.Println("delete users: ", users)
 		dbus.WriteUsersDB(users)
 
 		c.Redirect(302, "/showall")

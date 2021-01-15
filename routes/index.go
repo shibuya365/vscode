@@ -13,7 +13,7 @@ import (
 // Index ルートを表示する
 func Index(scs dbscs.Shortcuts) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		fmt.Println("R /")
+		fmt.Println("root: /")
 		// User 読み込み
 		users := dbus.ReadUsersDB()
 
@@ -32,10 +32,10 @@ func Index(scs dbscs.Shortcuts) gin.HandlerFunc {
 		} else {
 			// ログインしている場合
 			fmt.Println("Login")
-			nums := users[cookie]
+			bools := users[cookie]
 			fmt.Println("index users: ", users)
-			for _, num := range nums {
-				scs[num].Visiable = false
+			for i, b := range bools {
+				scs[i].Visiable = b
 			}
 		}
 

@@ -32,10 +32,10 @@ func ShowAll(scs dbscs.Shortcuts) gin.HandlerFunc {
 		} else {
 			// ログインしている場合
 			fmt.Println("Login")
-			nums := users[cookie]
+			bools := users[cookie]
 			fmt.Println("showall users: ", users)
-			for _, num := range nums {
-				scs[num].Visiable = false
+			for i, b := range bools {
+				scs[i].Visiable = b
 			}
 		}
 

@@ -10,8 +10,8 @@ import (
 	"github.com/shibuya365/VSCode.git/dbus"
 )
 
-// 消す
-func Delete(scs dbscs.Shortcuts) gin.HandlerFunc {
+// Toggle is toggle users flag
+func Toggle(scs dbscs.Shortcuts) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		fmt.Println("R Delete")
 		// IDを取得
@@ -39,7 +39,8 @@ func Delete(scs dbscs.Shortcuts) gin.HandlerFunc {
 		}
 		// nums := users[cookie]
 		// usersにIDを追加
-		users[cookie] = append(users[cookie], id)
+		// users[cookie] = append(users[cookie], id)
+		users[cookie][id] = !users[cookie][id]
 		fmt.Println("delete users: ", users)
 		dbus.WriteUsersDB(users)
 

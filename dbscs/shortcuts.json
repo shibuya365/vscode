@@ -93,7 +93,7 @@
     "id": 15,
     "title": "ファイル検索",
     "shortcut": "Cmd + P",
-    "description": "ファイルを検索する"
+    "description": "ファイルを検索する。同じファイルがあるときはさらにスペースの後にディレクトリ名を入れると絞り込める"
   },
   {
     "id": 16,
@@ -303,7 +303,7 @@
     "id": 50,
     "title": "サイドバーのトグル",
     "shortcut": "Cmd + B",
-    "description": "サイドバーを表示したり消したりする"
+    "description": "サイドバーを表示したり消したりする。開く時は Cmd + Shift + E の方がカーソールが移動するので便利"
   },
   {
     "id": 51,
@@ -376,5 +376,53 @@
     "title": "開いてるファイルを新しいウィンドウで表示",
     "shortcut": "Cmd + K → O",
     "description": "開いているファイルを新しいVSCodeを開いて表示する"
-  }  
+  },
+  {
+    "id": 63,
+    "title": "エクスプローラー（左の画面）とエディターを移動",
+    "shortcut": "Cmd + Shift + E",
+    "description": "エクスプローラー（左の画面）とエディターを移動"
+  },
+  {
+    "id": 64,
+    "title": "タブにフォーカス",
+    "shortcut": "Cmd + K → E",
+    "description": "エクスプローラーから開いているタブの一覧へフォーカスが移動する"
+  },
+  {
+    "id": 65,
+    "title": "1文字進む",
+    "shortcut": "Ctrl + F",
+    "description": "→ カーソルキーを使うよりも早く移動できる"
+  },
+  {
+    "id": 66,
+    "title": "１文字戻る",
+    "shortcut": "Ctrl + B",
+    "description": "← カーソルキーキーを使うよりも早く移動できる"
+  },
+  {
+    "id": 67,
+    "title": "上へ移動",
+    "shortcut": "Ctrl + P",
+    "description": "↑ カーソルキーキーを使うよりも早く移動できる"
+  },
+  {
+    "id": 68,
+    "title": "下へ移動",
+    "shortcut": "Ctrl + N",
+    "description": "↓ カーソルキーキーを使うよりも早く移動できる"
+  },
+  {
+    "id": 69,
+    "title": "行頭へ移動",
+    "shortcut": "Cmd + A",
+    "description": ""
+  },
+  {
+    "id": 70,
+    "title": "行まつへ移動",
+    "shortcut": "Cmd + E",
+    "description": ""
+  }
 ]

@@ -13,7 +13,7 @@ func TestIndex(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Hello, client")
 	}))
-	ts := httptest.NewServer(Index(scs))
+	// ts := httptest.NewServer(Index(func(w http.ResponseWriter, r *http.Request) {}))
 	defer ts.Close()
 
 	res, err := http.Get(ts.URL)

@@ -7,7 +7,7 @@ import (
 )
 
 // WriteUsersDB 関数
-func WriteUsersDB(users map[string][]int) {
+func WriteUsersDB(users map[string][]bool) {
 	fmt.Println("write users: ", users)
 
 	f, err := os.Create("dbus/save.txt")

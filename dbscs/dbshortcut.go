@@ -31,8 +31,9 @@ func ReadShortcutsDB() (scs Shortcuts) {
 		fmt.Println(err)
 	}
 
-	for i := 0; i < len(scs); i++ {
-		scs[i].Visiable = true
-	}
+	// fmt.Println("scs[0].Visiable: ", scs[0].Visiable)
+	// for i := 0; i < len(scs); i++ {
+	// 	scs[i].Visiable = true
+	// }
 	return scs
 }
