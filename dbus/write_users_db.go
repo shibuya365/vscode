@@ -7,16 +7,16 @@ import (
 )
 
 // WriteUsersDB 関数
-func WriteUsersDB(users map[string][]bool) {
-	fmt.Println("write users: ", users)
+func WriteUsersDB(users map[string][]string) {
+	fmt.Println("Save users: ", users)
 
 	f, err := os.Create("dbus/save.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer f.Close()
-	enc := gob.NewEncoder(f)
 
+	enc := gob.NewEncoder(f)
 	if err := enc.Encode(users); err != nil {
 		fmt.Println(err)
 	}

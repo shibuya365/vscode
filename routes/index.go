@@ -25,17 +25,26 @@ func Index(scs dbscs.Shortcuts) gin.HandlerFunc {
 			fmt.Println("Not Login")
 			// idを生成
 			guid := xid.New()
-
 			cookie = guid.String()
-
 			c.SetCookie("vscode_scs", cookie, 60*60*24*31*12*2, "/", "localhost", false, true)
 		} else {
 			// ログインしている場合
 			fmt.Println("Login")
-			bools := users[cookie]
-			fmt.Println("index users: ", users)
-			for i, b := range bools {
-				scs[i].Visiable = b
+
+			// scsの初期化
+			for i := 0; i < len(scs); i++ {
+				scs[i].Visiable = true
+			}
+
+			// 表示しないものにfalseを代入
+			strs := users[cookie]
+			fmt.Println("/ users: ", users)
+			for _, str := range strs {
+				for j, sc := range scs {
+					if sc.Shortcut == str {
+						scs[j].Visiable = false
+					}
+				}
 			}
 		}
 

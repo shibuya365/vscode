@@ -10,10 +10,10 @@ import (
 	"github.com/shibuya365/VSCode.git/dbus"
 )
 
-// 全てを表示
+// ShowAll 全てを表示
 func ShowAll(scs dbscs.Shortcuts) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		fmt.Println("R ShowAll")
+		fmt.Println("root: /showall")
 		// User 読み込み
 		users := dbus.ReadUsersDB()
 
@@ -25,17 +25,26 @@ func ShowAll(scs dbscs.Shortcuts) gin.HandlerFunc {
 			fmt.Println("Not Login")
 			// idを生成
 			guid := xid.New()
-
 			cookie = guid.String()
-
 			c.SetCookie("vscode_scs", cookie, 60*60*24*31*12*2, "/", "localhost", false, true)
 		} else {
 			// ログインしている場合
 			fmt.Println("Login")
-			bools := users[cookie]
-			fmt.Println("showall users: ", users)
-			for i, b := range bools {
-				scs[i].Visiable = b
+
+			// scsの初期化
+			for i := 0; i < len(scs); i++ {
+				scs[i].Visiable = true
+			}
+
+			// 表示しないものにfalseを代入
+			strs := users[cookie]
+			fmt.Println("/ users: ", users)
+			for _, str := range strs {
+				for j, sc := range scs {
+					if sc.Shortcut == str {
+						scs[j].Visiable = false
+					}
+				}
 			}
 		}
 

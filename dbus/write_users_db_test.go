@@ -1,10 +1,16 @@
 package dbus
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestWriteUsersDB(t *testing.T) {
-	var users map[string][]bool
-	n := []bool{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false}
-	users["bvtujotnf4q4d12u9700"] = n
+	var users map[string][]string
+	// なかった場合の仮のデータ作成
+	var strs []string
+	fmt.Println("read_users_db strs: ", strs)
+	users["bvtujotnf4q4d12u9700"] = strs
+	fmt.Println("read_users_db users: ", users)
 	WriteUsersDB(users)
 }

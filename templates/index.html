@@ -16,14 +16,13 @@
           </thead>
           {{ range .scs }}
           {{if .Visiable}}
-          {{else}}
           <thead class="bg-white divide-y divide-gray-200">
             <tr>
               <td scope="col" class="px-6 py-4">{{ .Title }}</td>
               <td scope="col" class="px-6 py-4 whitespace-nowrap animate-pulse" >{{ .Shortcut }}</td>
               <td scope="col" class="px-6 py-4">{{ .Description }}</td>
               <td scope="col" class="px-6 py-4 whitespace-nowrap">
-                <a href="/toggle/{{.ID}}"><button class="bg-gray-400 font-semibold text-white py-2 px-4 rounded btn hover:bg-red-500 focus:outline-none focus:shadow-outline">Delete</button></a>
+                <a href="/delete/{{.Shortcut}}"><button class="bg-gray-400 font-semibold text-white py-2 px-4 rounded btn hover:bg-red-500 focus:outline-none focus:shadow-outline">Delete</button></a>
               </td>
             </tr>
           </thead>

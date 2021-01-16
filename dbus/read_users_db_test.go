@@ -7,9 +7,9 @@ import (
 
 func TestReadUsersDB(t *testing.T) {
 	users := ReadUsersDB()
-	isBool := users["bvtujotnf4q4d12u9700"][0]
-	fmt.Println("isBool: ", isBool)
-	if isBool != false {
+	strs := users["bvtujotnf4q4d12u9700"]
+	fmt.Println("isBool: ", strs)
+	if strs[0] != "" {
 		t.Fatal("failed test")
 	}
 }

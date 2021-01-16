@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
+	// userの開発用の初期化、仮のデータ作成
+	// users := make(map[string][]string)
+	// var strs []string
+	// users["bvtujotnf4q4d12u9700"] = strs
+	// dbus.WriteUsersDB(users)
 
 	// ショートカットのファイルを読み込む
 	scs := dbscs.ReadShortcutsDB()
@@ -23,8 +28,8 @@ func main() {
 
 	// ハンドラの指定
 	r.GET("/", routes.Index(scs))
-	r.GET("/toggle/:id", routes.Toggle(scs))
-	r.GET("/toggleall/:id", routes.ToggleAll(scs))
+	r.GET("/delete/:id", routes.Delete(scs))
+	r.GET("/add/:id", routes.Add(scs))
 	r.GET("/showall", routes.ShowAll(scs))
 
 	// どのルーティングにも当てはまらなかった場合に処理
