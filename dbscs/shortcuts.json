@@ -1,5 +1,5 @@
 [
-  { "title": "1文字進む", "shortcut": "Ctrl + F", "description": "→ カーソルキーを使うよりも早く移動できる" },
+{ "title": "1文字進む", "shortcut": "Ctrl + F", "description": "→ カーソルキーを使うよりも早く移動できる" },
 { "title": "１文字戻る", "shortcut": "Ctrl + B", "description": "← カーソルキーキーを使うよりも早く移動できる" },
 { "title": "上へ移動", "shortcut": "Ctrl + P", "description": "↑ カーソルキーキーを使うよりも早く移動できる" },
 { "title": "下へ移動", "shortcut": "Ctrl + N", "description": "↓ カーソルキーキーを使うよりも早く移動できる" },
