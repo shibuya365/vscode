@@ -14,7 +14,7 @@
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delete</th>
             </tr>
           </thead>
-          {{ range .scs }}
+          {{ range .vscs }}
           <thead class="bg-white divide-y divide-gray-200">
             <tr>
               <td scope="col" class="px-6 py-4">{{ .Title }}</td>
@@ -22,9 +22,9 @@
               <td scope="col" class="px-6 py-4">{{ .Description }}</td>
               <td scope="col" class="px-6 py-4 whitespace-nowrap">
               {{if .Visiable}}
-                <a href="/delete/{{.Shortcut}}"><button class="bg-gray-400 font-semibold text-white py-2 px-4 rounded btn hover:bg-red-400 focus:outline-none focus:shadow-outline">消去</button></a>
+                <a href="/delete/{{.ID}}"><button class="bg-gray-400 font-semibold text-white py-2 px-4 rounded btn hover:bg-red-400 focus:outline-none focus:shadow-outline">消去</button></a>
               {{else}}
-                <a href="/add/{{.Shortcut}}"><button class="bg-gray-800 font-semibold text-white py-2 px-4 rounded btn hover:bg-blue-400 focus:outline-none focus:shadow-outline">表示</button></a>
+                <a href="/add/{{.ID}}"><button class="bg-gray-800 font-semibold text-white py-2 px-4 rounded btn hover:bg-blue-400 focus:outline-none focus:shadow-outline">表示</button></a>
               {{end}}
               </td>
             </tr>

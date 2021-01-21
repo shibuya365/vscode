@@ -2,19 +2,23 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/shibuya365/VSCode.git/dbscs"
+	"github.com/shibuya365/VSCode.git/fs"
 	"github.com/shibuya365/VSCode.git/routes"
 )
 
-func main() {
-	// userの開発用の初期化、仮のデータ作成
-	// users := make(map[string][]string)
-	// var strs []string
-	// users["bvtujotnf4q4d12u9700"] = strs
-	// dbus.WriteUsersDB(users)
+// Shortcut はDB設定の構造体
+type Shortcut struct {
+	ID          string `firestore:"id"`
+	Title       string `firestore:"title"`
+	Shortcut    string `firestore:"shortcut"`
+	Description string `firestore:"description"`
+	Visiable    bool
+}
 
-	// ショートカットのファイルを読み込む
-	scs := dbscs.ReadShortcutsDB()
+func main() {
+
+	// Firestoreから読み込み
+	fs.ReadVSCodes()
 
 	// ルーター
 	r := gin.Default()
@@ -27,10 +31,10 @@ func main() {
 	r.Static("/assets", "./assets")
 
 	// ハンドラの指定
-	r.GET("/", routes.Index(scs))
-	r.GET("/delete/:id", routes.Delete(scs))
-	r.GET("/add/:id", routes.Add(scs))
-	r.GET("/showall", routes.ShowAll(scs))
+	r.GET("/", routes.Index())
+	r.GET("/delete/:id", routes.Delete())
+	r.GET("/add/:id", routes.Add())
+	r.GET("/showall", routes.ShowAll())
 
 	// どのルーティングにも当てはまらなかった場合に処理
 	// r.NoRoute(routes.NoRoute)

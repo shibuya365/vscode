@@ -8,8 +8,7 @@ import (
 
 // Sc はDB設定の構造体
 type Shortcut struct {
-	ID int
-	// ID          int    `json:"id"`
+	ID          string `json:"id"`
 	Title       string `json:"title"`
 	Shortcut    string `json:"shortcut"`
 	Description string `json:"description"`
