@@ -36,7 +36,7 @@ func main() {
 	// ハンドラの指定
 	r.GET("/", routes.Index("index.html"))
 	r.GET("/delete/:id", routes.Delete())
-	r.GET("/add/:id", routes.Add())
+	r.POST("/set", routes.Set())
 	r.GET("/showall", routes.Index("showall.html"))
 
 	// どのルーティングにも当てはまらなかった場合に処理

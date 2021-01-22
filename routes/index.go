@@ -38,17 +38,6 @@ func Index(temp string) gin.HandlerFunc {
 		if err != nil {
 			// ログインしてなかった場合
 			fmt.Println("Not Login")
-			// idを生成
-			// guid := xid.New()
-			// cookie = guid.String()
-			// c.SetCookie("vscode_scs", cookie, 60*60*24*31*12*2, "/", "localhost", false, true)
-
-			// forestore追加
-			// _, err := client.Collection("users").Doc(cookie).Set(fs.CTX, user)
-			// if err != nil {
-			// 	// Handle any errors in an appropriate way, such as returning them.
-			// 	log.Printf("An error has occurred: %s", err)
-			// }
 		} else {
 			// ログインしている場合
 			fmt.Println("Login")

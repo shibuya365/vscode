@@ -8,14 +8,18 @@ import (
 	"github.com/shibuya365/VSCode.git/fs"
 )
 
-// Add delete inivisi from arary
-func Add() gin.HandlerFunc {
+// Set
+func Set() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		fmt.Println("root: Add")
+		fmt.Println("root: Set")
 
-		// PathからIDを取得
-		id := c.Param("id")
-		fmt.Println("id: ", id)
+		// Form定義
+		type idsForm struct {
+			IDs []string `form:"ids[]"`
+		}
+		var idsform idsForm
+		fmt.Println("idsform", idsform)
+		c.ShouldBind(&idsform)
 
 		// get client
 		client, err := fs.App.Firestore(fs.CTX)
@@ -50,13 +54,14 @@ func Add() gin.HandlerFunc {
 		dsnap.DataTo(&user)
 
 		// strsへ表示しないIDの配列を入れる
-		strs := user.Invisis
+		// strs := user.Invisis
 
 		// delete id
-		strs = remove(strs, id)
+		// strs = remove(strs, id)
 
+		ids := idsform.IDs
 		// userへ戻す
-		user.Invisis = strs
+		user.Invisis = ids
 
 		// データベースへ書き込み
 		_, err = client.Collection("users").Doc(cookie).Set(fs.CTX, user)
