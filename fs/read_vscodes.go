@@ -1,12 +1,9 @@
 package fs
 
 import (
-	"context"
 	"log"
 
-	firebase "firebase.google.com/go"
 	"google.golang.org/api/iterator"
-	"google.golang.org/api/option"
 )
 
 // VSCode is ShortCut for VSCode
@@ -24,20 +21,16 @@ var VSCodes []VSCode
 
 // ReadVSCodes read VSCodes
 func ReadVSCodes() {
-	ctx := context.Background()
-	sa := option.WithCredentialsFile("/Users/masashishibuya/firebase/vscode-72dc9-firebase-adminsdk-4bhgc-59cdd11e2e.json")
-	app, err := firebase.NewApp(ctx, nil, sa)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	client, err := app.Firestore(ctx)
+
+	// get client
+	client, err := App.Firestore(CTX)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	defer client.Close()
 
 	// 全てのショートカットを取得
-	iter := client.Collection("vscodes").Documents(ctx)
+	iter := client.Collection("vscodes").Documents(CTX)
 	for {
 		doc, err := iter.Next()
 		if err == iterator.Done {

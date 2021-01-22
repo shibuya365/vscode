@@ -17,6 +17,9 @@ type Shortcut struct {
 
 func main() {
 
+	// Firebaseを初期化
+	fs.FirebaseInit()
+
 	// Firestoreから読み込み
 	fs.ReadVSCodes()
 
@@ -31,10 +34,10 @@ func main() {
 	r.Static("/assets", "./assets")
 
 	// ハンドラの指定
-	r.GET("/", routes.Index())
+	r.GET("/", routes.Index("index.html"))
 	r.GET("/delete/:id", routes.Delete())
 	r.GET("/add/:id", routes.Add())
-	r.GET("/showall", routes.ShowAll())
+	r.GET("/showall", routes.Index("showall.html"))
 
 	// どのルーティングにも当てはまらなかった場合に処理
 	// r.NoRoute(routes.NoRoute)

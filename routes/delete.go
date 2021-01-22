@@ -1,36 +1,25 @@
 package routes
 
 import (
-	"context"
 	"fmt"
 	"log"
 
-	firebase "firebase.google.com/go"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/xid"
-	"google.golang.org/api/option"
+	"github.com/shibuya365/VSCode.git/fs"
 )
 
 // Delete add invisi to array
 func Delete() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		fmt.Println("R Delete")
+		fmt.Println("Root: Delete")
 
-		// 表示しないShortcutを取得
+		// PathからIDを取得
 		id := c.Param("id")
 		fmt.Println("id: ", id)
 
-		// userの初期化
-		var user User
-
 		// get client
-		ctx := context.Background()
-		sa := option.WithCredentialsFile("/Users/masashishibuya/firebase/vscode-72dc9-firebase-adminsdk-4bhgc-59cdd11e2e.json")
-		app, err := firebase.NewApp(ctx, nil, sa)
-		if err != nil {
-			log.Fatalln(err)
-		}
-		client, err := app.Firestore(ctx)
+		client, err := fs.App.Firestore(fs.CTX)
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -38,6 +27,12 @@ func Delete() gin.HandlerFunc {
 
 		// クッキー読み込み
 		cookie, err := c.Cookie("vscode_scs")
+
+		// userの初期化
+		var user User
+
+		// ログインしてない場合に備えてからの配列を用意
+		strs := make([]string, 0)
 
 		// Login?
 		if err != nil {
@@ -49,23 +44,24 @@ func Delete() gin.HandlerFunc {
 			c.SetCookie("vscode_scs", cookie, 60*60*24*31*12*2, "/", "localhost", false, true)
 
 			// forestore追加
-			_, err := client.Collection("users").Doc(cookie).Set(ctx, user)
-			if err != nil {
-				log.Printf("An error has occurred: %s", err)
-			}
+			// _, err := client.Collection("users").Doc(cookie).Set(ctx, user)
+			// if err != nil {
+			// 	log.Printf("An error has occurred: %s", err)
+			// }
 		} else {
 			// ログインしている場合
 			fmt.Println("Login")
-		}
 
-		// userを取得
-		dsnap, err := client.Collection("users").Doc(cookie).Get(ctx)
-		if err != nil {
-			fmt.Println("Firebase have no data: ", err)
-		}
-		dsnap.DataTo(&user)
+			// userを取得
+			dsnap, err := client.Collection("users").Doc(cookie).Get(fs.CTX)
+			if err != nil {
+				fmt.Println("Firebase have no data: ", err)
+			}
+			dsnap.DataTo(&user)
 
-		strs := user.Invisis
+			// strsへ表示しないIDの配列を入れる
+			strs = user.Invisis
+		}
 
 		// IDと追加
 		strs = append(strs, id)
@@ -74,7 +70,7 @@ func Delete() gin.HandlerFunc {
 		user.Invisis = strs
 
 		// データベースへ書き込み
-		_, err = client.Collection("users").Doc(cookie).Set(ctx, user)
+		_, err = client.Collection("users").Doc(cookie).Set(fs.CTX, user)
 		if err != nil {
 			log.Printf("An error has occurred: %s", err)
 		}
