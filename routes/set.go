@@ -69,8 +69,8 @@ func Set() gin.HandlerFunc {
 			log.Printf("An error has occurred: %s", err)
 		}
 
-		// Redirect to /showall
-		c.Redirect(302, "/showall")
+		// Redirect to root
+		c.Redirect(302, "/")
 	}
 }
 
