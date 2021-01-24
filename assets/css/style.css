@@ -1,11 +1,81 @@
-header {
-  color: orange;
+/*まずはお決まりのボックスサイズ算出をborer-boxに */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fefefe;
+  color: #333;
 }
 
 h2 {
-  color: orange;
+  text-align: center;
 }
 
-footer {
-  color: orange;
+.btn {
+  font-size: 1rem;
+  /* font-weight: 700; */
+  line-height: 1.5;
+  /* position: relative; */
+  display: inline-block;
+  /* padding: 0rem 0rem; */
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  /* letter-spacing: 0.1em; */
+  color: #eee;
+  background-color: #888888;
+  border-radius: 0.5rem;
+}
+
+.btn-move {
+  /* 位置固定 */
+  position: fixed;
+  top: 5vh;
+  right: 5vw;
+
+  padding: 1rem 3rem;
+}
+
+.btn:hover {
+  color: #eee;
+  background: #333333;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr {
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover {
+  background-color: #d4f0fd;
+}
+
+table th,
+table td {
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+
+.td-left {
+  text-align: left;
 }
